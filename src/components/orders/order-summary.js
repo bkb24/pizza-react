@@ -38,8 +38,8 @@ const OrderSummary = props => {
 
                 <div className="flex-grow-1"></div>
 
-                <div className="mr-3">Created: { moment(order.created_at).format('DD-MM-YYYY H:m:s') }</div>
-                <div>Updated: { moment(order.updated_at).format('DD-MM-YYYY H:m:s') }</div>
+                <div className="mr-3">Created: { moment(order.created_at).format('DD-MM-YYYY hh:mm:ss') }</div>
+                <div>Updated: { moment(order.updated_at).format('DD-MM-YYYY hh:mm:ss') }</div>
             </>
         }
 

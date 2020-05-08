@@ -6,7 +6,7 @@ const OrderPlaced = props => {
     let { order } = props
 
     return (
-        <div className="order-wrap border mt-4 mb-4">
+        <div className="order-wrap border mb-4">
             <OrderSummary order={order} />
 
             <div className="order-products">

@@ -20,17 +20,22 @@ const AdminUserOrders = () => {
     return (
         <AdminLayout className="mt-4">
             {
-                orders.map(order => {
-                    return (
-                        <Link key={order.id} to={`/admin/orders/${order.id}`}>
-                            <div className="card mb-3">
-                                <div className="card-body">
-                                    <OrderSummary order={order} />
+                orders.length ?
+                    orders.map(order => {
+                        return (
+                            <Link key={order.id} to={`/admin/orders/${order.id}`}>
+                                <div className="card mb-3">
+                                    <div className="card-body">
+                                        <OrderSummary order={order} />
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    )
-                })
+                            </Link>
+                        )
+                    })
+
+                    :
+
+                    <h4>No item found</h4>
             }
         </AdminLayout>
     )

@@ -42,7 +42,7 @@ const ProductItem = props => {
                     {props.product.name}
                 </div>
 
-                <div className="d-flex">
+                <div className="prices-wrap d-flex flex-wrap">
                     <div className="product-price">
                         {priceTag(props.product.price, context.currency, context.rates)}
                     </div>
@@ -50,7 +50,8 @@ const ProductItem = props => {
                     {
                         quantity ?
                         <div className="product-price">
-                            &nbsp; / total: { priceTag(props.product.price * quantity, context.currency, context.rates) }
+                            &nbsp;/ total: { priceTag(props.product.price * quantity, context.currency, context.rates) }
+                            &nbsp; ( x { quantity })
                         </div>
                         :
                         ''
@@ -78,7 +79,7 @@ const ProductItem = props => {
 
                                     :
 
-                                    <div>x {quantity}</div>
+                                    ''
                             }
 
                             <button className="btn btn-danger" onClick={() => {

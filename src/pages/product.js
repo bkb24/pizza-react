@@ -18,7 +18,17 @@ const Products = props => {
             })
     }, [id]);
 
-    return <ProductItem product={product} quantity={getQuantity(context, product)} />
+    return (
+        <div className="d-flex mt-4">
+            <div className="card">
+                <div className="card-body">
+                    { product &&
+                        <ProductItem product={product} quantity={getQuantity(context, product)} />
+                    }
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Products

@@ -23,7 +23,7 @@ const Order = () => {
     }
 
     return (
-        <div>
+        <div className="mt-4">
             <OrderPlaced order={order}>
                 { order.status === 'placed' && <button onClick={cancelTheOrder} className="btn btn-danger">cancel</button> }
             </OrderPlaced>

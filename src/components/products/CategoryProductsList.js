@@ -10,13 +10,13 @@ const CategoryProductsList = (props) => {
         <section className="mt-4">
             <h3 className="mb-3">{ props.category.name }</h3>
 
-            <div className="products-wrap d-flex flex-wrap">
+            <div className="product-wrap d-flex flex-wrap">
             {
                 props.category.products.map((item, i) => {
                     return (
-                        <div className="card mr-4">
+                        <div key={item.id} className="card mr-4">
                             <div className="card-body">
-                                <ProductItem key={item.id} product={item} quantity={getQuantity(context, item)} />
+                                <ProductItem product={item} quantity={getQuantity(context, item)} />
                             </div>
                         </div>
                     )

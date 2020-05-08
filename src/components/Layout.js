@@ -33,92 +33,88 @@ const Layout = props => {
             <Router>
                 <Nav />
 
-                { context.loaded &&
-                    <Switch>
-                        <Route path="/" exact>
-                            <Products />
+                <Switch>
+                    <Route path="/" exact>
+                        <Products />
+                    </Route>
+
+                    <Route path="/cart" exact>
+                        <Cart />
+                    </Route>
+
+                    <Route path="/orders" exact>
+                        <Orders />
+                    </Route>
+
+                    <Route path="/orders/:id" exact>
+                        <Order />
+                    </Route>
+
+                    { context.user &&
+                        <Route path="/profile" exact>
+                            <Profile />
                         </Route>
+                    }
 
-                        <Route path="/cart" exact>
-                            <Cart />
+                    { (context.isAdmin || context.isManager) &&
+                        <Route path="/admin" exact>
+                            <Admin />
                         </Route>
+                    }
 
-                        <Route path="/orders" exact>
-                            <Orders />
+                    { (context.isAdmin || context.isManager) &&
+                        <Route path="/admin/products" exact>
+                            <AdminProducts />
                         </Route>
+                    }
 
-                        <Route path="/orders/:id" exact>
-                            <Order />
+                    { (context.isAdmin || context.isManager) &&
+                        <Route path="/admin/products/create" exact component={ProductAdminCreate} />
+                    }
+
+                    { (context.isAdmin || context.isManager) &&
+                        <Route path="/admin/products/:id" exact component={ProductAdmin} />
+                    }
+
+                    { (context.isAdmin || context.isManager) &&
+                        <Route path="/admin/orders" exact>
+                            <AdminOrders />
                         </Route>
+                    }
 
-                        { context.user &&
-                            <Route path="/profile" exact>
-                                <Profile />
-                            </Route>
-                        }
+                    { (context.isAdmin || context.isManager) &&
 
-                        { (context.isAdmin || context.isManager) &&
-                            <Route path="/admin" exact>
-                                <Admin />
-                            </Route>
-                        }
-
-                        { (context.isAdmin || context.isManager) &&
-                            <Route path="/admin/products" exact>
-                                <AdminProducts />
-                            </Route>
-                        }
-
-                        { (context.isAdmin || context.isManager) &&
-                            <Route path="/admin/products/create" exact component={ProductAdminCreate} />
-                        }
-
-                        { (context.isAdmin || context.isManager) &&
-                            <Route path="/admin/products/:id" exact component={ProductAdmin} />
-                        }
-
-                        { (context.isAdmin || context.isManager) &&
-                            <Route path="/admin/orders" exact>
-                                <AdminOrders />
-                            </Route>
-                        }
-
-                        { (context.isAdmin || context.isManager) &&
-
-                            <Route path="/admin/orders/:id" exact>
-                                <AdminOrder />
-                            </Route>
-                        }
-
-                        { context.isAdmin &&
-                            <Route path="/admin/users" exact>
-                                <Users />
-                            </Route>
-                        }
-
-                        { context.isAdmin &&
-                            <Route path="/admin/users/:id" exact>
-                                <User />
-                            </Route>
-                        }
-
-                        { context.isAdmin &&
-                            <Route path="/admin/users/:userId/orders" exact>
-                                <AdminUserOrders />
-                            </Route>
-                        }
-
-                        <Route path="/products/:id" exact>
-                            <Product />
+                        <Route path="/admin/orders/:id" exact>
+                            <AdminOrder />
                         </Route>
+                    }
 
-                    </Switch>
-                }
+                    { context.isAdmin &&
+                        <Route path="/admin/users" exact>
+                            <Users />
+                        </Route>
+                    }
 
+                    { context.isAdmin &&
+                        <Route path="/admin/users/:id" exact>
+                            <User />
+                        </Route>
+                    }
+
+                    { context.isAdmin &&
+                        <Route path="/admin/users/:userId/orders" exact>
+                            <AdminUserOrders />
+                        </Route>
+                    }
+
+                    <Route path="/products/:id" exact>
+                        <Product />
+                    </Route>
+
+                </Switch>
             </Router>
         </div>
     )
-
 }
 
 export default Layout

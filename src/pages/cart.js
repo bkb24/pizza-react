@@ -3,7 +3,9 @@ import StoreContext from '../context/store-context'
 import ProductItem from '../components/products/ProductItem'
 import { priceTag } from '../utils/currency'
 import { placeOrder } from '../services/orders'
+import { flushCart } from '../services/cart'
 import ShippingDetailsForm from '../components/ShippingDetailsForm'
+import OrderPlaced from '../components/orders/order-placed'
 
 const Cart = props => {
     const [order, setOrder] = useState(false)
@@ -26,42 +28,43 @@ const Cart = props => {
             })
     }
 
+    const clearAll = () => {
+        flushCart()
+            .then(response => {
+                context.clearCart()
+            })
+    }
+
     return (
-        <div className="cart mt-4">
+        <div className="cart mt-4 mb-4">
             {
-                showShipping ?
+                order &&
 
                 <div>
-                    {
-                        order ?
+                    <h3>Order placed</h3>
 
-                        <>
-                            <h3>Order placed</h3>
-                            {/* Order component */}
-                        </>
-
-                        :
-
-                        <>
-                            <h3>Place order</h3>
-                            <ShippingDetailsForm order={orderNow} />
-                        </>
-                    }
+                    <OrderPlaced order={order} />
                 </div>
 
-                :
+            }
 
+            {
                 (
                     context.cart.length ?
 
                     <div className="">
-                        <div className="d-flex">
+
+                        <div className="mb-3 text-right pr-4">
+                            <button className="btn btn-danger" onClick={clearAll}>Clear All</button>
+                        </div>
+
+                        <div className="">
                         {
                             context.cart.map((item, i) => {
                                 return (
-                                    <div className="card mr-4">
+                                    <div key={i} className="cart-product card mr-4">
                                         <div className="card-body">
-                                            <ProductItem key={i} product={item.product} quantity={item.quantity} update={true} />
+                                            <ProductItem product={item.product} quantity={item.quantity} update={true} />
                                         </div>
                                     </div>
                                 )
@@ -69,19 +72,31 @@ const Cart = props => {
                         }
                         </div>
 
-                        <div className="cart-total h3 text-center m-4">{totalPriceTag}</div>
+                        <div className="cart-total h3 text-right m-4 pr-2">Total: {totalPriceTag}</div>
 
                         { !showShipping &&
-                            <div className="text-center">
+                            <div className="text-right pr-4">
                                 <button className="btn btn-primary"
                                     onClick={e => setShowShipping(true)}>Go checkout</button>
                             </div>
                         }
+
+                        {
+                            showShipping &&
+
+                            <div>
+                                <h3>Place order</h3>
+                                <ShippingDetailsForm order={orderNow} />
+                            </div>
+                        }
+
                     </div>
 
                     :
 
-                    <div>No items in the cart</div>
+                    <div>
+                        { !order && <div>No items in the cart</div> }
+                    </div>
                 )
             }
 

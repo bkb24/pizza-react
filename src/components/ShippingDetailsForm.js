@@ -31,44 +31,44 @@ const ShippingDetailsForm = props => {
         <div>
 
             <form>
-                <div>
+                <div className="form-group mt-2">
                     <label htmlFor="first_name">First name</label>
-                    <input value={data.first_name} onChange={onChange} id="first_name" name="first_name" type="text" />
-                    { errors.first_name && <p className="validation-error">{errors.first_name}</p> }
+                    <input className="form-control" value={data.first_name} onChange={onChange} id="first_name" name="first_name" type="text" />
+                    { errors.first_name && <p className="text-danger">{errors.first_name}</p> }
                 </div>
 
-                <div>
+                <div className="form-group mt-2">
                     <label htmlFor="last_name">Last name</label>
-                    <input value={data.last_name} onChange={onChange} id="last_name" name="last_name" type="text" />
-                    { errors.last_name && <p className="validation-error">{errors.last_name}</p> }
+                    <input className="form-control" value={data.last_name} onChange={onChange} id="last_name" name="last_name" type="text" />
+                    { errors.last_name && <p className="text-danger">{errors.last_name}</p> }
                 </div>
 
-                <div>
+                <div className="form-group mt-2">
                     <label htmlFor="phone">Phone</label>
-                    <input value={data.phone} onChange={onChange} id="phone" name="phone" type="number" />
-                    { errors.phone && <p className="validation-error">{errors.phone}</p> }
+                    <input className="form-control" value={data.phone} onChange={onChange} id="phone" name="phone" type="number" />
+                    { errors.phone && <p className="text-danger">{errors.phone}</p> }
                 </div>
 
-                <div>
+                <div className="form-group mt-2">
                     <label htmlFor="address">Address</label>
-                    <textarea value={data.address} onChange={onChange} id="address" name="address"></textarea>
-                    { errors.address && <p className="validation-error">{errors.address}</p> }
+                    <textarea className="form-control" value={data.address} onChange={onChange} id="address" name="address"></textarea>
+                    { errors.address && <p className="text-danger">{errors.address}</p> }
                 </div>
 
-                <div>
+                <div className="form-group mt-2">
                     <label htmlFor="city">City</label>
-                    <input value={data.city} onChange={onChange} id="city" name="city" type="text" />
-                    { errors.city && <p className="validation-error">{errors.city}</p> }
+                    <input className="form-control" value={data.city} onChange={onChange} id="city" name="city" type="text" />
+                    { errors.city && <p className="text-danger">{errors.city}</p> }
                 </div>
 
-                <div>
+                <div className="form-group mt-2">
                     <label htmlFor="state">State</label>
-                    <input value={data.state} onChange={onChange} id="state" name="state" type="text" />
-                    { errors.state && <p className="validation-error">{errors.state}</p> }
+                    <input className="form-control" value={data.state} onChange={onChange} id="state" name="state" type="text" />
+                    { errors.state && <p className="text-danger">{errors.state}</p> }
                 </div>
 
-                <div>
-                    <button onClick={order}>Order</button>
+                <div className="mt-3">
+                    <button className="btn btn-success" onClick={order}>Order</button>
                 </div>
             </form>
 

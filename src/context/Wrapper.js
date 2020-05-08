@@ -1,45 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import StoreContext from './store-context'
-import { getUser } from '../services/user'
 import { addItemToCart, removeItemFromCart, flushCart } from '../services/cart'
 import { inCart } from '../utils/products'
 
 const Wrapper = props => {
-    // const rates = window.appData ? window.appData.rates : {}
-    // const isAdmin = window.appData ? window.appData.isAdmin : false
-    // const isManager = window.appData ? window.appData.isManager : false
-    // const cartState = window.appData ? window.appData.cart : []
-    const [user, setUser] = useState({})
-    const [currency, setCurrency] = useState('EUR')
-    const [loaded, setLoaded] = useState(false)
-    const [rates, setRates] = useState({})
-    const [isAdmin, setIsAdmin] = useState(false)
-    const [isManager, setIsManager] = useState(false)
-    const [cart, setCart] = useState([])
-
-    useEffect(() => {
-        getUser()
-            .then(response => {
-                let {
-                    rates,
-                    currency,
-                    isAdmin,
-                    isManager,
-                    cart,
-                    csrfToken
-                } = response.data.appData
-
-                window.csrfToken = csrfToken
-
-                setUser(response.data.appData.user)
-                setCurrency(currency)
-                setRates(rates)
-                setIsAdmin(isAdmin)
-                setIsManager(isManager)
-                setCart(cart)
-                setLoaded(true)
-            })
-    }, [])
+    const [user, setUser] = useState(window.appData ? window.appData.user : {})
+    const [currency, setCurrency] = useState(window.appData ? window.appData.currency : 'EUR')
+    const [rates, ] = useState(window.appData ? window.appData.rates : {})
+    const [isAdmin, ] = useState(window.appData ? window.appData.isAdmin : false)
+    const [isManager, ] = useState(window.appData ? window.appData.isManager : false)
+    const [cart, setCart] = useState(window.appData ? window.appData.cart : [])
 
     const setUserData = user => {
         setUser(user)
@@ -105,7 +75,6 @@ const Wrapper = props => {
             value={{
                 user,
                 currency,
-                loaded,
                 rates,
                 isAdmin,
                 isManager,

@@ -5,8 +5,6 @@ export default React.createContext({
 
     currency: 'EUR',
 
-    loaded: false,
-
     rates: {},
 
     isAdmin: false,

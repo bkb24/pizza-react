@@ -171,7 +171,7 @@ const ProductAdmin = props => {
 
                 <div>
                     <label>in_stock: </label>
-                    <input className="form-control" id="in_stock" type="checkbox"
+                    <input className="ml-2" id="in_stock" type="checkbox"
                         onChange={e => setData({ ...data, in_stock: e.target.checked ? 1 : 0 })}
                         checked={data.in_stock} name="in_stock" />
 

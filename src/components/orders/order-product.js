@@ -15,7 +15,7 @@ const OrderProduct = props => {
                     </div>
                 </Link>
 
-                <div className="product-image">
+                <div className="product-name">
                     {props.product.product.name}
                 </div>
 

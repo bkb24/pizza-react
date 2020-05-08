@@ -135,7 +135,7 @@ const ProductAdminCreate = props => {
 
                 <div>
                     <label>in_stock: </label>
-                    <input className="form-control" id="in_stock" type="checkbox"
+                    <input className="ml-2" id="in_stock" type="checkbox"
                         onChange={onCheckbox}
                         checked={data.in_stock} name="in_stock" />
 
