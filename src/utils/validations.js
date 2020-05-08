@@ -90,8 +90,7 @@ export const productSave = (data) => {
 
     lengthCheck(data, 'name', PNAME_MIN, PNAME_MAX, errors)
 
-    minLen(data, 'description', DESC_MIN, errors)
-    maxLen(data, 'description', DESC_MAX, errors)
+    lengthCheck(data, 'description', DESC_MIN, DESC_MAX, errors)
 
     isNumber(data, 'price', errors)
     min(data, 'price', PRICE_MIN, errors)

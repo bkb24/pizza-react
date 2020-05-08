@@ -97,7 +97,7 @@ const ProductItem = props => {
                             <input className="form-control col-3" type="number" step="1" max="10" min="1" value={quantity}
                                 onChange={e => quantityChange(e)} />
 
-                            <button className="ml-2 btn btn-success" onClick={() => context.addToCart(props.product, quantity)}>
+                            <button disabled={quantity < 1 ? 'disabled' : ''} className="ml-2 btn btn-success" onClick={() => context.addToCart(props.product, quantity)}>
                                 Add to cart
                             </button>
                         </div>

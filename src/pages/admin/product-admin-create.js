@@ -119,7 +119,7 @@ const ProductAdminCreate = props => {
                 </div>
 
                 <div>
-                    <label>description: € </label>
+                    <label>description: </label>
                     <input className="form-control" onChange={onChange} value={data.description}  id="desc" type="text" name="description" />
 
                     { errors.description && <p className="text-danger">{errors.description}</p> }
