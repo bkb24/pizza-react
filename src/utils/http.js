@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const baseURL = 'http://pizza.test'
+const baseURL = window.appData ? window.appData.base_url : `${window.location.protocol}//${window.location.host}`
+
+console.log('baseUrl', baseURL)
 
 export const Api = () => {
     return axios.create({

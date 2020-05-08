@@ -38,11 +38,11 @@ const ProductItem = props => {
                     </div>
                 </Link>
 
-                <div className="product-image text-center">
+                <div className="product-image text-center py-2">
                     {props.product.name}
                 </div>
 
-                <div className="prices-wrap d-flex flex-wrap">
+                <div className="prices-wrap d-flex flex-wrap pb-2">
                     <div className="product-price">
                         {priceTag(props.product.price, context.currency, context.rates)}
                     </div>
