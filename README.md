@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About
+
+This is a test task for arranging pizza ordering situation. The focus is on the ordering process and working with different currencies.
+The tools used are create-react-app, and the ContextAPI and a negligent ammount of Bootstrap. 
+
+## Functions on the application
+
+It works with a Laravel API and auth system. The user can order and 'checkout' witout an account. But if they have one, they can save their address and contact details for future orders. 
+
+There are 3 types of users: Regular, Manager and an Administrator. The Administrator has been given all the power they can have. The manager can add and delete products and deal with orders - cancel or confirm. But they can not add or take any privileges of any other user. The Regular user just has a history of previous orders and can cancel their unconfirmed orders.
+
+All the prices can be converted within the currency that the user chooses between Euro and Dollars. After thay choose this stays as their permanent choice until the session expires. The exchange rates are given from the backend, that makes and API call to a third-party API to get te latest rates.
+
+
+## Create eact app things
+--------------------------
 ## Available Scripts
 
 In the project directory, you can run:
