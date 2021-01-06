@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getOrders, cancelOrder } from '../services/orders'
-import OrderPlaced from '../components/orders/order-placed'
+import OrderPlaced from '../components/orders/OrderPlaced'
 
 const Order = () => {
     const [order, setOrder] = useState([])

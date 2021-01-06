@@ -1,6 +1,6 @@
 import React from 'react'
-import OrderProduct from './order-product'
-import OrderSummary from './order-summary'
+import OrderProduct from './OrderProduct'
+import OrderSummary from './OrderSummary'
 
 const OrderPlaced = props => {
     let { order } = props

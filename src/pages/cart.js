@@ -5,7 +5,7 @@ import { priceTag } from '../utils/currency'
 import { placeOrder } from '../services/orders'
 import { flushCart } from '../services/cart'
 import ShippingDetailsForm from '../components/ShippingDetailsForm'
-import OrderPlaced from '../components/orders/order-placed'
+import OrderPlaced from '../components/orders/OrderPlaced'
 
 const Cart = props => {
     const [order, setOrder] = useState(false)

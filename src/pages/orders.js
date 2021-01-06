@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getOrders } from '../services/orders'
-import OrderSummary from '../components/orders/order-summary'
+import OrderSummary from '../components/orders/OrderSummary'
 import { Link } from 'react-router-dom'
 
 const Orders = () => {

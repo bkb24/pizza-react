@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Nav from './nav'
+import Nav from './Nav'
 import {
     BrowserRouter as Router,
     Switch,

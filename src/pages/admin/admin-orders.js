@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getOrders } from '../../services/admin'
-import OrderSummary from '../../components/orders/order-summary'
+import OrderSummary from '../../components/orders/OrderSummary'
 import AdminLayout from '../../components/AdminLayout'
 import { Link } from 'react-router-dom'
 

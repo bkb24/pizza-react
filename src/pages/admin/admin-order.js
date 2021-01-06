@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getOrders, cancelOrder, confirmOrder } from '../../services/admin'
-import OrderPlaced from '../../components/orders/order-placed'
+import OrderPlaced from '../../components/orders/OrderPlaced'
 import AdminLayout from '../../components/AdminLayout'
 
 const OrderAdmin = () => {
